@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo "buid docker image"
                 
-                  sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 010762572680.dkr.ecr.ap-south-1.amazonaws.com'
+                  
                   sh 'sudo docker build -t httpd .'
                   
                   sh 'docker tag httpd:latest 010762572680.dkr.ecr.ap-south-1.amazonaws.com/httpd:2.4'
