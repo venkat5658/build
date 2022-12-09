@@ -15,7 +15,7 @@ pipeline {
                 
                   
                   sh 'sudo docker build -t httpd .'
-                 
+                  sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 010762572680.dkr.ecr.ap-south-1.amazonaws.com'
                   
                   sh 'docker tag httpd:latest 010762572680.dkr.ecr.ap-south-1.amazonaws.com/httpd:2.4'
                   sh 'sudo chmod 666 /var/run/docker.sock'
