@@ -1,7 +1,5 @@
 
-FROM ubuntu
-RUN apt install apache2 -y 
-WORKDIR /var/www/html
-COPY  ./build/* /var/www/html
+FROM httpd:2.4
+WORKDIR /usr/local/apache2/htdocs/
+COPY  ./build/* /usr/local/apache2/htdocs/
 EXPOSE 80
-CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
