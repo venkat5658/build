@@ -15,8 +15,10 @@ pipeline {
                 
                   
                   sh 'sudo docker build -t httpd .'
+                 
                   
                   sh 'docker tag httpd:latest 010762572680.dkr.ecr.ap-south-1.amazonaws.com/httpd:2.4'
+                  sh 'sudo chmod 666 /var/run/docker.sock'
               
                   sh 'docker push 010762572680.dkr.ecr.ap-south-1.amazonaws.com/httpd:2.4'
                
