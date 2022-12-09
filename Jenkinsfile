@@ -13,10 +13,12 @@ pipeline {
             steps {
                 echo "buid docker image"
                 
-                sh 'sudo docker build -t public.ecr.aws/b9y2y3b4/new:ubuntu .'
-                sh 'docker login -u venkat5658 -p venkat5658@ '
-                sh 'aws ecr-public get-login-password --region ap-south-1 | docker login --username AWS --password-stdin public.ecr.aws/b9y2y3b4 public.ecr.aws/b9y2y3b4/new:ubuntu'
-                sh 'sudo docker push public.ecr.aws/b9y2y3b4/new:ubuntu '
+                sh 'sudo aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/b9y2y3b4'
+                  sh 'sudo docker build -t httpd .'
+                  
+                  sh 'sudo docker tag httpd:latest public.ecr.aws/b9y2y3b4/httpd:2.4 '
+              
+                  sh 'sudo docker push public.ecr.aws/b9y2y3b4/nginx:2.4 '
                
             }
         }
