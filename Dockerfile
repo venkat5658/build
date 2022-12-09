@@ -1,5 +1,6 @@
 
-FROM httpd:2.4
-WORKDIR /usr/local/apache2/htdocs/
-COPY  ./build/* /usr/local/apache2/htdocs/
+FROM ubuntu
+Run apt install apache2
+WORKDIR /var/www/html
+COPY  ./build/* /var/www/html
 EXPOSE 80
