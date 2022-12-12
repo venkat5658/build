@@ -14,7 +14,7 @@ pipeline {
                 echo "build docker image"
                 
                   
-                  sh 'sudo docker build -t httpd:2.4 '
+                  sh 'sudo docker build -t httpd:2.4  -f Dockerfile '
                  
                   
                   sh 'docker tag httpd:latest public.ecr.aws/b9y2y3b4/httpd:2.4'
