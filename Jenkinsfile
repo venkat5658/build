@@ -14,13 +14,13 @@ pipeline {
                 echo "build docker image"
                 
                   
-                  sh 'sudo docker build -t httpd .'
+                  sh 'sudo docker build -t public.ecr.aws/b9y2y3b4/httpd .'
                   sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 010762572680.dkr.ecr.ap-south-1.amazonaws.com'
                   
-                  sh 'docker tag httpd:latest 010762572680.dkr.ecr.ap-south-1.amazonaws.com/httpd:2.4'
+                  sh 'docker tag httpd:latest public.ecr.aws/b9y2y3b4/httpd:2.4'
                   sh 'sudo chmod 666 /var/run/docker.sock'
               
-                  sh 'docker push 010762572680.dkr.ecr.ap-south-1.amazonaws.com/httpd:2.4'
+                  sh 'docker push public.ecr.aws/b9y2y3b4/httpd:2.4'
                
             }
         }
