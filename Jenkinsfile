@@ -9,9 +9,9 @@ pipeline {
             }
         }
         
-        stage('build docker docker image') {
+        stage('build docker image') {
             steps {
-                echo "buid docker image"
+                echo "build docker image"
                 
                   
                   sh 'sudo docker build -t httpd .'
