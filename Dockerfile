@@ -1,5 +1,5 @@
 FROM httpd
 WORKDIR /usr/local/htppd/htdocs/
-COPY . /build/* /usr/local/htppd/htdocs/
+COPY . . 
 EXPOSE 8080
 
