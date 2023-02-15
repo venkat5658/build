@@ -25,7 +25,7 @@ pipeline {
             }
         }
       
-        stage('kubectl deploy'){ 
+     ///   stage('kubectl deploy'){ 
        steps
         {
           sh 'sudo kubectl apply -f httpd-dep.yaml'
